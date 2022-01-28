@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SweetShop", "SweetShop\Swee
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SweetShop.DataAcces", "SweetShop.DataAcces\SweetShop.DataAcces.csproj", "{5B39509E-4F00-4BEA-A1FE-30626F9B003C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SweetShop.CQRS", "SweetShop.CQRS\SweetShop.CQRS.csproj", "{D2645C73-E605-44E6-A68A-60881BDCD669}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5B39509E-4F00-4BEA-A1FE-30626F9B003C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B39509E-4F00-4BEA-A1FE-30626F9B003C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B39509E-4F00-4BEA-A1FE-30626F9B003C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2645C73-E605-44E6-A68A-60881BDCD669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2645C73-E605-44E6-A68A-60881BDCD669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2645C73-E605-44E6-A68A-60881BDCD669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2645C73-E605-44E6-A68A-60881BDCD669}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
