@@ -12,5 +12,7 @@ namespace SweetShop.DataAcces
     {
         public DbSet<Client> Clients { get; set; }
         public DbSet<Cake> Cakes { get; set; }
+        public DbSet<FeedBack> FeedBacks { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

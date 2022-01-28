@@ -1,5 +1,8 @@
-﻿using System;
+﻿using SweetShop.DataAcces;
+using SweetShop.DataAcces.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -12,6 +15,32 @@ namespace SweetShop.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
+            var shop = new SweetShopDbContext();
+
+            var order = new Order()
+            {
+                Cakes = new List<Cake>()
+                {
+                    new Cake()
+                    {
+                        Name = "Amandina",
+                        Price = 2.5
+                    }
+                },
+                Client = new Client()
+                { FirstName = "das", LastName = "das" }
+            };
+
+            shop.Orders.Add(order);
+            shop.SaveChanges();
+
+            var orders = shop.Orders
+                .Include(x => x.Cakes)
+                .Include(x => x.Client)
+                .ToList();
+
+
+
             return new string[] { "value1", "value2" };
         }
 
