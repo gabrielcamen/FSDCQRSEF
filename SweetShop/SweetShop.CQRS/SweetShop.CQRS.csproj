@@ -32,23 +32,36 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="MediatR, Version=9.0.0.0, Culture=neutral, PublicKeyToken=bb9a41a5e8aaa7e2">
+          <HintPath>..\packages\MediatR.9.0.0\lib\net461\MediatR.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+          <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Commands\Command.cs" />
+        <Compile Include="CQRSBindingModule.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Commands" />
-      <Folder Include="Queries" />
+        <Compile Include="Queries\Query.cs" />
+        <Compile Include="UserNotification.cs" />
+        <Compile Include="UserNotificationHandler.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SweetShop.DataAcces\SweetShop.DataAcces.csproj">
         <Project>{5b39509e-4f00-4bea-a1fe-30626f9b003c}</Project>
         <Name>SweetShop.DataAcces</Name>
       </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,6 +4,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using MediatR;
+using Ninject;
+using SweetShop.CQRS;
+using SweetShop.CQRS.Commands;
+using SweetShop.DataAcces.Models;
 
 namespace SweetShop.Controllers
 {
@@ -12,6 +17,15 @@ namespace SweetShop.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
+            var dd = WebApiConfig.Container.Get<ICQRSCommand>();
+
+            var mediatR = WebApiConfig.Container.Get<IMediator>();
+
+            mediatR.Publish(new UserNotification(new Client()
+            {
+                FirstName = "GG",
+                LastName = "DD"
+            }));
             return new string[] { "value1", "value2" };
         }
 
