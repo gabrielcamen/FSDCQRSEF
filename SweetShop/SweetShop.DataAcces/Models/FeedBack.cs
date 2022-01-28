@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SweetShop.DataAcces.Models
 {
-    public class Cake
+    public class FeedBack
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public double Price { get; set; }
+        public Client Client { get; set; }
+        public Cake Cake { get; set; }
     }
 }
