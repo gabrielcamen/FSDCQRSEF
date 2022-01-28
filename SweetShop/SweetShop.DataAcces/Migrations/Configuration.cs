@@ -1,4 +1,6 @@
-﻿namespace SweetShop.DataAcces.Migrations
+﻿using System.Collections.Generic;
+
+namespace SweetShop.DataAcces.Migrations
 {
     using SweetShop.DataAcces.Models;
     using System;
@@ -43,9 +45,93 @@
             context.Cakes.AddOrUpdate(new Cake()
             {
                 Id = 1,
-                Name = "Ecler",
+                Name = "Eclair",
                 Price = 12
             });
+            context.Cakes.AddOrUpdate(new Cake()
+            {
+                Id = 2,
+                Name = "Medovik",
+                Price = 7
+            });
+            context.Cakes.AddOrUpdate(new Cake()
+            {
+                Id = 3,
+                Name = "Padurea neagra",
+                Price = 8
+            });
+            context.Cakes.AddOrUpdate(new Cake()
+            {
+                Id = 4,
+                Name = "Chec",
+                Price = 4
+            });
+            context.Cakes.AddOrUpdate(new Cake()
+            {
+                Id = 4,
+                Name = "Chec",
+                Price = 4
+            });
+            context.Orders.AddOrUpdate(new Order()
+            {
+                Id = 1,
+                Cakes =  new List<Cake>
+                {
+                    new Cake
+                    {
+                        Name = "Amandina",
+                        Price = 12
+                    },
+                    new Cake
+                    {
+                        Name = "Covrig",
+                        Price = 2.5
+                    },
+                    new Cake
+                    {
+                        Name = "Tort de ciocolata",
+                        Price = 50
+                    },
+                    new Cake
+                    {
+                        Name = "Placinta cu mere",
+                        Price = 10
+                    },
+                }
+            });
+            
+            context.Orders.AddOrUpdate(new Order()
+            {
+                Id = 2,
+                Cakes =  new List<Cake>
+                {
+                    new Cake
+                    {
+                        Name = "Tort de ciocolata",
+                        Price = 50
+                    }
+                }
+            });
+            context.Orders.AddOrUpdate(new Order()
+            {
+                Id = 3,
+                Cakes =  new List<Cake>
+                {
+                    new Cake
+                    {
+                        Name = "Tort de ciocolata",
+                        Price = 50
+                    },
+                    new Cake
+                    {
+                        Name = "Saratele",
+                        Price = 15
+                    },
+                }
+            });
+            
+            
+            
 
 
         }
