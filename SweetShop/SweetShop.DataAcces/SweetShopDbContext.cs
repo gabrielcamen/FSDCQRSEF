@@ -14,5 +14,10 @@ namespace SweetShop.DataAcces
         public DbSet<Cake> Cakes { get; set; }
         public DbSet<FeedBack> FeedBacks { get; set; }
         public DbSet<Order> Orders { get; set; }
+
+        public SweetShopDbContext()
+        {
+            Database.SetInitializer<SweetShopDbContext>(new DropCreateDatabaseAlways<SweetShopDbContext>());
+        }
     }
 }

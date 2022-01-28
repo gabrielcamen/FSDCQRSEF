@@ -1,7 +1,8 @@
-﻿using MediatR;
+﻿using System.Collections.Generic;
+using MediatR;
 using Ninject.Modules;
-using SweetShop.CQRS.Commands;
 using SweetShop.CQRS.Queries;
+using SweetShop.DataAcces.Models;
 using ICommand = System.Windows.Input.ICommand;
 
 namespace SweetShop.CQRS
@@ -10,12 +11,15 @@ namespace SweetShop.CQRS
     {
         public override void Load()
         {
-            Bind<ICQRSCommand>().To<CQRSCommand>();
             Bind<IQuery>().To<Query>();
             
             Bind<IUserNotificationHandler,
                     INotificationHandler<UserNotification>>()
-                .To<UserNotificationHandler>();
+                .To<AddNewUserCommand>();
+
+            Bind<IGetAllUsersQuery,
+                IRequestHandler<GetAllUsersQueryNotification, List<Client>>>()
+                .To<GetAllUsersQuery>();
         }
     }
 }

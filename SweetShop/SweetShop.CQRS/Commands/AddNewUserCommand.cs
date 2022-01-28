@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
+using SweetShop.DataAcces;
 
 namespace SweetShop.CQRS
 {
@@ -9,13 +10,13 @@ namespace SweetShop.CQRS
         
     }
 
-    public class UserNotificationHandler : IUserNotificationHandler 
+    public class AddNewUserCommand : IUserNotificationHandler 
     {
         public Task Handle(UserNotification notification, CancellationToken cancellationToken)
         {
-            var dd = notification.Client.FirstName;
-            
-
+            var shop = new SweetShopDbContext();
+            shop.Clients.Add(notification.Client);
+            shop.SaveChanges();
             return Task.CompletedTask;
         }
     }

@@ -6,56 +6,32 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using MediatR;
 using Ninject;
 using SweetShop.CQRS;
-using SweetShop.CQRS.Commands;
 using SweetShop.DataAcces.Models;
 
 namespace SweetShop.Controllers
 {
     public class ValuesController : ApiController
     {
+        
+        private IMediator mediatR = WebApiConfig.Container.Get<IMediator>();
         // GET api/values
-        public IEnumerable<string> Get()
+        public List<Client> Get()
+        { 
+            var result =  mediatR.Send(new GetAllUsersQueryNotification());
+           var reultd = result.Result.ToList();
+           return reultd;
+        }
+
+        private void Do()
         {
             var shop = new SweetShopDbContext();
-
-            var order = new Order()
-            {
-                Cakes = new List<Cake>()
-                {
-                    new Cake()
-                    {
-                        Name = "Amandina",
-                        Price = 2.5
-                    }
-                },
-                Client = new Client()
-                { FirstName = "das", LastName = "das" }
-            };
-
-            shop.Orders.Add(order);
-            shop.SaveChanges();
-
-            var orders = shop.Orders
-                .Include(x => x.Cakes)
-                .Include(x => x.Client)
-                .ToList();
-
-
-
-            var dd = WebApiConfig.Container.Get<ICQRSCommand>();
-
-            var mediatR = WebApiConfig.Container.Get<IMediator>();
-
-            mediatR.Publish(new UserNotification(new Client()
-            {
-                FirstName = "GG",
-                LastName = "DD"
-            }));
-            return new string[] { "value1", "value2" };
+            
+            var orders = shop.Clients.ToList();
         }
 
         // GET api/values/5
@@ -65,8 +41,10 @@ namespace SweetShop.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody] string value)
-        {
+        [HttpPost]
+        public void Post([FromBody] Client client)
+        { 
+            mediatR.Publish(new UserNotification(client));
         }
 
         // PUT api/values/5
