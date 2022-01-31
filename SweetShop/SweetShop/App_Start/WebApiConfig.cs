@@ -30,7 +30,7 @@ namespace SweetShop
         private static void ConfigureContainer()
         {
             Container = new StandardKernel( new SweetShopBindingModule(),
-                new CQRSBindingModule());
+                new CqrsBindingModule());
         }
     }
 }

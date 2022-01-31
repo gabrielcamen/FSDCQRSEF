@@ -3,16 +3,16 @@ using System.Threading.Tasks;
 using MediatR;
 using SweetShop.DataAcces;
 
-namespace SweetShop.CQRS
+namespace SweetShop.CQRS.Commands
 {
-    public interface IUserNotificationHandler : INotificationHandler<UserNotification>
+    public interface IAddClientNotificationHandler : INotificationHandler<ClientNotification>
     {
         
     }
 
-    public class AddNewUserCommand : IUserNotificationHandler 
+    public class AddNewClientCommand : IAddClientNotificationHandler 
     {
-        public Task Handle(UserNotification notification, CancellationToken cancellationToken)
+        public Task Handle(ClientNotification notification, CancellationToken cancellationToken)
         {
             var shop = new SweetShopDbContext();
             shop.Clients.Add(notification.Client);

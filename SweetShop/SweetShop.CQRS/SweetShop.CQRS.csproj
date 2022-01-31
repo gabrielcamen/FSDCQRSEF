@@ -58,11 +58,10 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Commands\AddNewUserCommand.cs" />
-        <Compile Include="CQRSBindingModule.cs" />
+        <Compile Include="Commands\ClientNotification.cs" />
+        <Compile Include="CqrsBindingModule.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Queries\GetAllUsersQuery.cs" />
-        <Compile Include="Queries\Query.cs" />
-        <Compile Include="UserNotification.cs" />
+        <Compile Include="Queries\GetAllClientsQuery.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\SweetShop.DataAcces\SweetShop.DataAcces.csproj">

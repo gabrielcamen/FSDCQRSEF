@@ -10,25 +10,25 @@ using SweetShop.DataAcces.Models;
 namespace SweetShop.CQRS
 {
 
-    public interface IGetAllUsersQueryNotification : IRequest<List<Client>>
+    public interface IGetAllClientsQueryNotification : IRequest<List<Client>>
     {
         
     }
 
-    public class GetAllUsersQueryNotification : IGetAllUsersQueryNotification
+    public class GetAllClientsQueryNotification : IGetAllClientsQueryNotification
     {
         
     }
     
     
-    public interface IGetAllUsersQuery : IRequestHandler<IGetAllUsersQueryNotification, List<Client>>
+    public interface IGetAllClientsQuery : IRequestHandler<IGetAllClientsQueryNotification, List<Client>>
     {
         
     }
     
-    public class GetAllUsersQuery : IGetAllUsersQuery
+    public class GetAllClientsQuery : IGetAllClientsQuery
     {
-        public Task<List<Client>> Handle(IGetAllUsersQueryNotification notification, CancellationToken cancellationToken)
+        public Task<List<Client>> Handle(IGetAllClientsQueryNotification notification, CancellationToken cancellationToken)
         {
             var database = new SweetShopDbContext();
             var clients = database.Clients.ToList();

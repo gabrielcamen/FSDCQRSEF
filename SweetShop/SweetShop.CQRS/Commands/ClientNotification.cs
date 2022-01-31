@@ -1,13 +1,13 @@
 ﻿using MediatR;
 using SweetShop.DataAcces.Models;
 
-namespace SweetShop.CQRS
+namespace SweetShop.CQRS.Commands
 {
-    public class UserNotification : INotification
+    public class ClientNotification : INotification
     { 
         public Client Client { get; }
 
-        public UserNotification(Client client)
+        public ClientNotification(Client client)
         {
             Client = client;
         }
